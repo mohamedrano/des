@@ -43,11 +43,11 @@ export const HeroAnimation = () => {
 
         {/* Layer 2: Main Text Content */}
         <div className="main-content-wrapper relative z-40 flex flex-col items-center justify-center text-center w-full h-full">
-          <div className="text-content-wrapper flex flex-col items-center justify-center w-full gap-2 md:gap-3 lg:gap-4 z-50 p-4 md:p-6 lg:p-10 bg-black/20 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-white/10">
-            <h1 className="text-main text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-tight text-center w-full">
+          <div className="text-content-wrapper flex flex-col items-center justify-center w-auto max-w-2xl gap-2 md:gap-3 lg:gap-4 z-30 p-4 md:p-6 lg:p-10 bg-black/20 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-white/10">
+            <h1 className="text-main text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-tight text-center">
               بس اصلي
             </h1>
-            <p className="text-dedication text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-dedication-color mt-2 md:mt-4 text-center w-full">
+            <p className="text-dedication text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-dedication-color mt-1 md:mt-2 text-center">
               اهداء ليسري نصر الله
             </p>
           </div>
@@ -57,7 +57,7 @@ export const HeroAnimation = () => {
         {[...Array(5)].map((_, i) => (
           <div
             key={`p3-${i}`}
-            className="phase-3-img absolute rounded-lg shadow-2xl overflow-hidden border border-white/20 z-30"
+            className="phase-3-img absolute rounded-lg shadow-2xl overflow-hidden border border-white/20 z-20"
             style={{
               width: `${responsiveValues.cardWidth}px`,
               height: `${responsiveValues.cardHeight}px`,
