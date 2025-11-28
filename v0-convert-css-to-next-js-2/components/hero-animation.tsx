@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRef } from "react"
@@ -24,6 +23,11 @@ export const HeroAnimation = () => {
 
   return (
     <div ref={containerRef} className="bg-black min-h-screen text-white" dir="rtl">
+      {/* Fixed Header */}
+      <div className="fixed-header fixed top-0 left-0 right-0 h-16 bg-black/90 backdrop-blur-sm border-b border-white/10 z-[100] opacity-0 flex items-center justify-center">
+        <span className="font-bold text-sm md:text-base lg:text-xl tracking-widest text-white/80">النسخة</span>
+      </div>
+
       <div
         ref={triggerRef}
         className="h-screen w-full relative overflow-hidden flex flex-col items-center justify-center"
@@ -39,15 +43,11 @@ export const HeroAnimation = () => {
 
         {/* Layer 2: Main Text Content */}
         <div className="main-content-wrapper relative z-40 flex flex-col items-center justify-center text-center w-full h-full">
-          <div className="header-text absolute top-10 font-bold text-sm md:text-base lg:text-xl tracking-widest text-white/80">
-            النسخة
-          </div>
-
-          <div className="text-content-wrapper flex flex-col items-center gap-2 md:gap-3 lg:gap-4 z-50 p-4 md:p-6 lg:p-10 bg-black/20 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-white/10">
-            <h1 className="text-main text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-tight">
+          <div className="text-content-wrapper flex flex-col items-center justify-center w-auto max-w-4xl gap-2 md:gap-3 lg:gap-4 z-30 p-4 md:p-6 lg:p-10 bg-black/20 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-white/10 ml-40">
+            <h1 className="text-main text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-tight text-center">
               بس اصلي
             </h1>
-            <p className="text-dedication text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-dedication-color mt-2 md:mt-4">
+            <p className="text-dedication text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-dedication-color mt-1 md:mt-2 text-center">
               اهداء ليسري نصر الله
             </p>
           </div>
@@ -57,12 +57,13 @@ export const HeroAnimation = () => {
         {[...Array(5)].map((_, i) => (
           <div
             key={`p3-${i}`}
-            className="phase-3-img absolute rounded-lg shadow-2xl overflow-hidden border border-white/20 z-30"
+            className="phase-3-img absolute rounded-lg shadow-2xl overflow-hidden border border-white/20 z-20"
             style={{
               width: `${responsiveValues.cardWidth}px`,
               height: `${responsiveValues.cardHeight}px`,
-              left: `${15 + i * 10}%`,
+              left: `${40 + (i - 2) * 8}%`,
               top: "100%",
+              transform: "translateX(-50%)",
             }}
           >
             {i >= 1 && i <= 3 ? (

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useLayoutEffect, RefObject } from "react"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
@@ -50,13 +49,13 @@ export const useHeroAnimation = (
         scale: 5,
         y: -600,
         opacity: 0,
-        duration: 3.5,
+        duration: 3,
         ease: "power2.inOut",
         pointerEvents: "none",
       })
 
-      // Phase 2: Show Text
-      .fromTo(".header-text", { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, zIndex: 60 }, "-=2.5")
+      // Phase 2: Show Fixed Header
+      .fromTo(".fixed-header", { opacity: 0 }, { opacity: 1, duration: 0.8 }, "-=2")
       .fromTo(
         ".text-content-wrapper",
         { opacity: 0, y: 300, scale: 0.9 },
@@ -64,28 +63,40 @@ export const useHeroAnimation = (
           opacity: 1,
           y: -220,
           scale: 1,
-          duration: 2.5,
+          duration: 2,
           ease: "power2.out",
-          zIndex: 50,
+          zIndex: 30,
         },
-        "-=2",
+        "-=1.5",
       )
 
-      // Phase 3: Card Animation Setup
+      // Phase 3: Text Lock in Place & Cards Start Appearing
+      .to(
+        ".text-content-wrapper",
+        {
+          y: -220,
+          duration: 1,
+          ease: "none",
+        },
+        0.5,
+      )
+
+      // Phase 3: Card Animation Setup - Cards enter from bottom continuously
       const phase3Images = gsap.utils.toArray(".phase-3-img") as HTMLElement[]
       phase3Images.forEach((img, i) => {
+        const staggerDelay = i * 0.15
         const randomX = (i % 2 === 0 ? -1 : 1) * (Math.random() * 30 + 10)
         const randomAngle = (Math.random() - 0.5) * 20
-        
+
         tl.fromTo(
           img,
           { y: "120vh", rotation: randomAngle, opacity: 0, xPercent: randomX },
-          { y: 0, opacity: 1, duration: 1.5, ease: "power2.out" },
-          "-=1",
+          { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
+          1.2 + staggerDelay,
         )
       })
 
-      // Phase 4: V-Shape Formation
+      // Phase 4: V-Shape Formation with smooth transition
       tl.to(
         ".phase-3-img",
         {
@@ -102,10 +113,10 @@ export const useHeroAnimation = (
           rotation: (i) => (i < 5 ? responsiveValues.vShapePositions[i]?.rotation || 0 : 0),
           scale: 0.85,
           opacity: (i) => (i < 5 ? 1 : 0),
-          duration: 1.8,
+          duration: 1.5,
           ease: "power3.inOut",
         },
-        "-=1",
+        2,
       )
     }, containerRef)
 
