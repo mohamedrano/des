@@ -65,7 +65,7 @@ export const useHeroAnimation = (
           scale: 1,
           duration: 2,
           ease: "power2.out",
-          zIndex: 50,
+          zIndex: 30,
         },
         "-=1.5",
       )
