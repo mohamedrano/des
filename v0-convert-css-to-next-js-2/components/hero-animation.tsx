@@ -61,8 +61,9 @@ export const HeroAnimation = () => {
             style={{
               width: `${responsiveValues.cardWidth}px`,
               height: `${responsiveValues.cardHeight}px`,
-              left: `${15 + i * 10}%`,
+              left: `${40 + (i - 2) * 8}%`,
               top: "100%",
+              transform: "translateX(-50%)",
             }}
           >
             {i >= 1 && i <= 3 ? (
