@@ -85,15 +85,15 @@ export const useHeroAnimation = (
       // Phase 3: Card Animation Setup - Cards enter from bottom continuously
       const phase3Images = gsap.utils.toArray(".phase-3-img") as HTMLElement[]
       phase3Images.forEach((img, i) => {
-        const staggerDelay = i * 0.3
+        const staggerDelay = i * 0.15
         const randomX = (i % 2 === 0 ? -1 : 1) * (Math.random() * 30 + 10)
         const randomAngle = (Math.random() - 0.5) * 20
 
         tl.fromTo(
           img,
           { y: "120vh", rotation: randomAngle, opacity: 0, xPercent: randomX },
-          { y: 0, opacity: 1, duration: 1.2, ease: "power2.out" },
-          1.5 + staggerDelay,
+          { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
+          1.2 + staggerDelay,
         )
       })
 
@@ -114,10 +114,10 @@ export const useHeroAnimation = (
           rotation: (i) => (i < 5 ? responsiveValues.vShapePositions[i]?.rotation || 0 : 0),
           scale: 0.85,
           opacity: (i) => (i < 5 ? 1 : 0),
-          duration: 2,
+          duration: 1.5,
           ease: "power3.inOut",
         },
-        2.5,
+        2,
       )
     }, containerRef)
 
