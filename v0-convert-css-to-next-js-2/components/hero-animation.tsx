@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRef } from "react"
@@ -24,6 +23,11 @@ export const HeroAnimation = () => {
 
   return (
     <div ref={containerRef} className="bg-black min-h-screen text-white" dir="rtl">
+      {/* Fixed Header */}
+      <div className="fixed-header fixed top-0 left-0 right-0 h-16 bg-black/90 backdrop-blur-sm border-b border-white/10 z-[100] opacity-0 flex items-center justify-center">
+        <span className="font-bold text-sm md:text-base lg:text-xl tracking-widest text-white/80">النسخة</span>
+      </div>
+
       <div
         ref={triggerRef}
         className="h-screen w-full relative overflow-hidden flex flex-col items-center justify-center"
