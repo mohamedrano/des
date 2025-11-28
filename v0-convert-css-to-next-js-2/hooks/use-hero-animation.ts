@@ -54,9 +54,8 @@ export const useHeroAnimation = (
         pointerEvents: "none",
       })
 
-      // Phase 2: Show Text & Fixed Header
-      .fromTo(".header-text", { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 0.8, zIndex: 60 }, "-=2")
-      .fromTo(".fixed-header", { opacity: 0 }, { opacity: 1, duration: 0.8 }, "-=0.8")
+      // Phase 2: Show Fixed Header
+      .fromTo(".fixed-header", { opacity: 0 }, { opacity: 1, duration: 0.8 }, "-=2")
       .fromTo(
         ".text-content-wrapper",
         { opacity: 0, y: 300, scale: 0.9 },
