@@ -43,10 +43,6 @@ export const HeroAnimation = () => {
 
         {/* Layer 2: Main Text Content */}
         <div className="main-content-wrapper relative z-40 flex flex-col items-center justify-center text-center w-full h-full">
-          <div className="header-text absolute top-10 font-bold text-sm md:text-base lg:text-xl tracking-widest text-white/80">
-            النسخة
-          </div>
-
           <div className="text-content-wrapper flex flex-col items-center gap-2 md:gap-3 lg:gap-4 z-50 p-4 md:p-6 lg:p-10 bg-black/20 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-white/10">
             <h1 className="text-main text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-tight">
               بس اصلي
